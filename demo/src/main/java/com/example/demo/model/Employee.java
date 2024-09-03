@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,25 +7,24 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "companies")
+@Table(name = "employees")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Company {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "phone")
-    private String phone;
+
 }

@@ -1,18 +1,22 @@
-package com.example.demo;
 
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.Company;
+import com.example.demo.model.repository.CompanyRepository;
+
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/companies")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CompanyController {
 
     private final CompanyRepository companyRepository;
-
-    public CompanyController(CompanyRepository companyRepository) {
-        this.companyRepository = companyRepository;
-    }
 
     @GetMapping
     public List<Company> getAllCompanies() {
@@ -44,3 +48,4 @@ public class CompanyController {
         companyRepository.deleteById(id);
     }
 }
+ 
